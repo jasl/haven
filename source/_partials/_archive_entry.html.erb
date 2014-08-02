@@ -1,0 +1,19 @@
+<article class="archive-entry">
+  <h1>
+    <%= link_to article.title, article %>
+  </h1>
+
+  <p class="meta text-muted">
+    <span class="glyphicon glyphicon-calendar"></span>
+    <% time_tag article.date do %>
+      <%= article.date.strftime('%b %d, %Y') %>
+    <% end %>
+    <% if article.tags.any? %>
+      |
+      <span class="glyphicon glyphicon-tags"></span>
+    <% end %>
+    <% article.tags.each do |tag| %>
+      <%= link_to tag, tag_path(tag), class: 'tag' %>
+    <% end %>
+  </p>
+</article>

@@ -1,0 +1,14 @@
+<% wrap_layout :layout do %>
+  <article class="article-entry" role="article">
+    <header class="page-header">
+      <h1 class="entry-title">
+        <%= current_blog_page.title %>
+      </h1>
+    </header>
+    <div class="entry-content clearfix">
+      <%= yield %>
+    </div>
+  </article>
+
+  <% set_title current_resource.data.title %>
+<% end %>

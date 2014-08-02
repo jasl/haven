@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'Pontano Sans';
+    font-style: normal;
+    font-weight: 400;
+    /* bugged when build using minify_css */
+    /*src: local('Pontano Sans'), local('PontanoSans-Regular'), font_url('pontano-sans.woff') format('woff');*/
+    src: local('Pontano Sans'), local('PontanoSans-Regular'), url(/fonts/pontano-sans.woff) format('woff');
+}

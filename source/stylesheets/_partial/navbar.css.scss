@@ -1,0 +1,11 @@
+.navbar {
+  @include glass;
+  margin-bottom: 20px;
+
+  .third_party_name {
+    display: none;
+    @media (max-width: 767px) {
+      display: inline;
+    }
+  }
+}

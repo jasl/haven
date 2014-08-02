@@ -1,0 +1,40 @@
+.archive-header {
+  @include glass;
+
+  padding: 20px;
+  border: none;
+  * {
+    margin: 0;
+  }
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.archive-entry {
+  @include glass;
+  padding: 20px;
+  margin-bottom: 20px;
+
+  .page-header {
+    margin-top: 0px;
+  }
+
+  .meta {
+    margin-bottom: 0;
+    .glyphicon {
+      margin-right: 0.2em;
+    }
+  }
+
+  h1 {
+    margin-top: 0;
+
+    a {
+      text-decoration: none;
+
+      &:hover {
+        color: $text-color;
+      }
+    }
+  }
+}

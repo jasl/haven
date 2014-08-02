@@ -1,0 +1,64 @@
+@mixin mask-image($img, $repeat: no-repeat){
+  @include experimental(mask-image, image-url($img), -webkit, -moz, -o, -ms);
+  @include experimental(mask-repeat, $repeat, -webkit, -moz, -o, -ms);
+  width: image-width($img);
+  height: image-height($img);
+}
+
+@mixin shadow-box($padding: 0.4em, $bg-color: rgba(255, 255, 255, 0.2), $shadow: rgba(#000, .15) 0 1px 4px, $border-radius: .3em) {
+  @include border-radius($border-radius);
+  @include box-shadow($shadow);
+  @include box-sizing(border-box);
+  padding: $padding;
+  background-color: $bg-color;
+}
+
+@mixin selection($bg, $color: inherit, $text-shadow: none){
+  * {
+    &::-moz-selection { background: $bg; color: $color; text-shadow: $text-shadow; }
+    &::-webkit-selection { background: $bg; color: $color; text-shadow: $text-shadow; }
+    &::selection { background: $bg; color: $color; text-shadow: $text-shadow; }
+  }
+}
+
+@mixin glass($bg: rgba(0, 0, 0, 0.4), $border-radius: 6px) {
+  @include border-radius(6px);
+  background-color: $bg;
+}
+
+@function text-color($color, $dark: dark, $light: light){
+  $text-color: ( (red($color)*299) + (green($color)*587) + (blue($color)*114) ) / 1000;
+  $text-color: if($text-color >= 150, $dark, $light);
+  @return $text-color;
+}
+
+.flex-content {
+  max-width: 100%;
+  height: auto;
+}
+
+.basic-alignment {
+  &.left {
+    float: left;
+    margin-right: 1.5em;
+  }
+  &.right {
+    float: right;
+    margin-left: 1.5em;
+  }
+  &.center {
+    display: block;
+    margin: 0 auto 1.5em;
+  }
+  &.left, &.right {
+    margin-bottom: .8em;
+  }
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.page-content {
+  margin-bottom: 42px;
+}

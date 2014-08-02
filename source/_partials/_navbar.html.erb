@@ -1,0 +1,55 @@
+<nav class="navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/"><%= site.title %></a>
+  </div>
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav">
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if site.facebook_id %>
+        <li>
+          <% link_to "http://www.facebook.com/#{site.facebook_id}", target: '_blank', title: 'Facebook' do %>
+            <i class="fa fa-facebook"></i>
+            <span class="third_party_name">Facebook</span>
+          <% end %>
+        </li>
+      <% end %>
+      <% if site.google_plus_id %>
+        <li>
+          <% link_to "http://plus.google.com/#{site.google_plus_id}", target: '_blank', title: 'Google+' do %>
+            <i class="fa fa-google-plus"></i>
+            <span class="third_party_name">Google+</span>
+          <% end %>
+        </li>
+      <% end %>
+      <% if site.twitter_id %>
+        <li>
+          <% link_to "http://twitter.com/#{site.twitter_id}", target: '_blank', title: 'Twitter' do %>
+            <i class="fa fa-twitter"></i>
+            <span class="third_party_name">Twitter</span>
+          <% end %>
+        </li>
+      <% end %>
+      <% if site.github_id %>
+        <li>
+          <% link_to "https://github.com/#{site.github_id}", target: '_blank', title: 'GitHub' do %>
+            <i class="fa fa-github"></i>
+            <span class="third_party_name">GitHub</span>
+          <% end %>
+        </li>
+      <% end %>
+      <li>
+        <% link_to '/feed.xml', target: '_blank', title: 'RSS' do %>
+          <i class="fa fa-rss"></i>
+          <span class="third_party_name">RSS</span>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+</nav>

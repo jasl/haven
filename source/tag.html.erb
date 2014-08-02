@@ -1,0 +1,11 @@
+<header class="page-header archive-header clearfix">
+  <h1>
+    Articles tagged '<%= tagname %>'
+  </h1>
+</header>
+
+<% page_articles.each do |article| %>
+  <%= partial '_partials/archive_entry', locals: {article: article} %>
+<% end %>
+
+<% set_title "#{tagname} - Tag" %>

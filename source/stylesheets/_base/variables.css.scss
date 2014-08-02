@@ -1,0 +1,30 @@
+@import '../pontano-sans';
+
+$bg-color: rgba(0, 0, 0, 0.4);
+$bg-inverse-color: rgba(255, 255, 255, 0.4);
+
+$font-family-sans-serif: "Pontano Sans", "Helvetica Neue", Arial, "Microsoft Yahei", sans-serif;
+$font-size-base: 16px;
+$text-color: #eee;
+$link-color: #b3d4fc;
+$link-hover-color: #4f93b6;
+
+$body-bg: #4f93b6;
+
+$navbar-default-color: #fff;
+$navbar-default-link-color: #fff;
+$navbar-default-link-hover-color: #fff;
+$navbar-default-bg: $bg-color;
+$navbar-default-border: none;
+$navbar-default-link-hover-bg: rgba(255, 255, 255, 0.4);
+$navbar-default-link-active-bg: rgba(255, 255, 255, 0.4);
+$navbar-default-link-active-color: #fff;
+$navbar-default-toggle-icon-bar-bg: #fff;
+
+$pager-link-bg: #b3d4fc;
+$pager-link-hover-bg: rgba(255, 255, 255, 0.4);
+
+$list-group-border: none;
+$list-group-bg: transparent;
+$list-group-hover-bg: $bg-inverse-color;
+$list-group-link-color: $link-color;

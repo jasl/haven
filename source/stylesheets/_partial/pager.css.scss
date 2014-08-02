@@ -1,0 +1,14 @@
+.pager {
+  margin-bottom: 10px;
+
+  li a {
+    background-color: $bg-color;
+    border: none;
+    color: $navbar-default-link-color;
+    margin-bottom: 12px;
+
+    &:hover {
+      background-color: $bg-inverse-color;
+    }
+  }
+}

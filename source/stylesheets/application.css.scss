@@ -1,0 +1,33 @@
+@import "compass/css3";
+@import "compass/utilities";
+
+@import "_base/utilities";
+@import "_base/variables.css.scss";
+
+@import "bootstrap";
+@import "font-awesome";
+
+@import "_partial/highlights";
+@import "_partial/article";
+@import "_partial/archive";
+@import "_partial/pager";
+@import "_partial/sidebar";
+@import "_partial/navbar";
+
+body {
+  background: image_url('artcast.jpg') no-repeat;
+  background-color: #6f5499;
+  min-height: 100%;
+  background-attachment: fixed;
+  background-position: 80% 80%;
+  @include background-size(cover);
+
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+
+
+
+
+

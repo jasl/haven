@@ -1,0 +1,77 @@
+<% wrap_layout :layout do %>
+  <article class="article-entry" role="article">
+    <header class="page-header">
+      <p class="meta text-muted text-uppercase">
+        <span class="glyphicon glyphicon-calendar"></span>
+        <% time_tag current_article.date do %>
+          <%= current_article.date.strftime('%b %d, %Y') %>
+        <% end %>
+        <% if current_article.tags.any? %>
+          |
+          <span class="glyphicon glyphicon-tags"></span>
+        <% end %>
+        <% current_article.tags.each do |tag| %>
+          <%= link_to tag, tag_path(tag), class: 'tag' %>
+        <% end %>
+      </p>
+      <h1 class="entry-title">
+        <%= current_article.title %>
+      </h1>
+    </header>
+    <div class="entry-content clearfix">
+      <%= yield %>
+    </div>
+    <footer class="clearfix">
+      <div class="sharing pull-right">
+        <div class="jiathis_style_24x24">
+          <a class="jiathis_button_tsina"></a>
+          <a class="jiathis_button_weixin"></a>
+          <a class="jiathis_button_renren"></a>
+          <a class="jiathis_button_twitter"></a>
+          <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <ul class="pager">
+    <% if current_article.previous_article %>
+      <li class="previous">
+        <%= link_to "&larr; #{current_article.previous_article.title}", current_article.previous_article %>
+      </li>
+    <% end %>
+    <% if current_article.next_article %>
+      <li class="next">
+        <%= link_to "#{current_article.next_article.title} &rarr;", current_article.next_article %>
+      </li>
+    <% end %>
+  </ul>
+
+  <section class="comment">
+    <div id="disqus_thread" aria-live="polite">
+      <noscript>Please enable JavaScript to view the
+        <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+  </section>
+
+  <% set_title current_article.title %>
+  <% content_for :js do %>
+    <script>
+      var disqus_shortname = 'jasl';
+      (function () {
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }());
+
+      var jiathis_config={
+        summary:"",
+        shortUrl:false,
+        hideMore:false
+      };
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+  <% end %>
+<% end %>

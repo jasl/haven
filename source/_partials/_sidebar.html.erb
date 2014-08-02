@@ -1,0 +1,26 @@
+<aside class="panel">
+  <header class="panel-heading">Recent Articles</header>
+  <div class="list-group">
+    <% blog.articles[0...10].each do |article| %>
+      <%= link_to article.title, article, class: 'list-group-item' %>
+    <% end %>
+  </div>
+</aside>
+
+<aside class="panel">
+  <header class="panel-heading">Tags</header>
+  <div class="list-group">
+    <% blog.tags.each do |tag, articles| %>
+      <%= link_to "#{tag} (#{articles.size})", tag_path(tag), class: 'list-group-item' %>
+    <% end %>
+  </div>
+</aside>
+
+<aside class="panel">
+  <header class="panel-heading">By Year</header>
+  <div class="list-group">
+    <% blog.articles.group_by { |a| a.date.year }.each do |year, articles| %>
+      <%= link_to "#{year} (#{articles.size})", blog_year_path(year), class: 'list-group-item' %>
+    <% end %>
+  </div>
+</aside>

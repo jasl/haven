@@ -1,0 +1,79 @@
+---
+pageable: true
+---
+<% if !prev_page && page_articles.size > 0 %>
+  <% article = page_articles.first %>
+  <article class="article-entry" role="article">
+    <header class="page-header">
+      <p class="meta text-muted text-uppercase">
+        <span class="glyphicon glyphicon-calendar"></span>
+        <% time_tag article.date do %>
+          <%= article.date.strftime('%b %d, %Y') %>
+        <% end %>
+        <% if article.tags.any? %>
+          |
+          <span class="glyphicon glyphicon-tags"></span>
+        <% end %>
+        <% article.tags.each do |tag| %>
+          <%= link_to tag, tag_path(tag), class: 'tag' %>
+        <% end %>
+      </p>
+
+      <h1 class="entry-title">
+        <%= article.title %>
+      </h1>
+    </header>
+    <div class="entry-content clearfix">
+      <%= article.body %>
+    </div>
+    <footer class="clearfix">
+      <div class="pull-left meta">
+        <%= link_to 'Permalink', article %> |
+        <%= link_to 'Comments', "#{article.path}#disqus_thread" %>
+      </div>
+      <div class="sharing pull-right">
+        <div class="jiathis_style_24x24">
+          <a class="jiathis_button_tsina"></a>
+          <a class="jiathis_button_weixin"></a>
+          <a class="jiathis_button_renren"></a>
+          <a class="jiathis_button_twitter"></a>
+          <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+        </div>
+      </div>
+    </footer>
+  </article>
+
+  <% content_for :js do %>
+    <script>
+      var jiathis_config = {
+        summary: "",
+        shortUrl: false,
+        hideMore: false
+      };
+    </script>
+    <script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+  <% end %>
+
+  <% page_articles[1..-1].each do |article| %>
+    <%= partial '_partials/archive_entry', locals: {article: article} %>
+  <% end %>
+<% else %>
+  <% page_articles.each do |article| %>
+    <%= partial '_partials/archive_entry', locals: {article: article} %>
+  <% end %>
+<% end %>
+
+<% if paginate && num_pages > 1 %>
+  <ul class="pager">
+    <% if prev_page %>
+      <li class="previous">
+        <%= link_to "&larr; Newer", prev_page %>
+      </li>
+    <% end %>
+    <% if next_page %>
+      <li class="next">
+        <%= link_to "Older &rarr;", next_page %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
