@@ -1,4 +1,4 @@
-<%= Rouge::Themes::Base16::Monokai.render(:scope => '.highlight') %>
+<%= Rouge::Themes::Base16.mode(:dark).render(:scope => '.highlight') %>
 
 .highlight {
   background-color: rgba(0, 0, 0, 0.4);
@@ -10,6 +10,10 @@
   }
 
   .nb, .lineno, .nf {
-    color: #f8f8f2;
+    color: #aaa;
+  }
+
+  pre {
+    color: #aaa;
   }
 }

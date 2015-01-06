@@ -3,11 +3,20 @@
     @extend .flex-content;
     @extend .basic-alignment;
   }
+
   img:not(.no-border) {
     @include shadow-box;
   }
-  video, .flash-video { margin: 0 auto 1.5em; }
-  video { display: block; width: 100%; }
+
+  video, .flash-video {
+    margin: 0 auto 1.5em;
+  }
+
+  video {
+    display: block;
+    width: 100%;
+  }
+
   .flash-video {
     > div {
       position: relative;
@@ -29,6 +38,7 @@
   .page-header {
     margin-top: 24px;
   }
+
   .meta {
     margin-bottom: 0;
     .glyphicon {

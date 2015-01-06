@@ -2,7 +2,7 @@
 @import "compass/utilities";
 
 @import "_base/utilities";
-@import "_base/variables.css.scss";
+@import "_base/variables";
 
 @import "bootstrap";
 @import "font-awesome";
@@ -15,15 +15,26 @@
 @import "_partial/navbar";
 
 body {
-  background: image_url('artcast.jpg') no-repeat;
-  background-color: #6f5499;
+  background: $body-bg image_url('f21.png') no-repeat fixed 80% 80%;
   min-height: 100%;
-  background-attachment: fixed;
-  background-position: 80% 80%;
   @include background-size(cover);
 
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+code {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 1px 2px;
+  color: #eee;
+}
+
+.table-striped > tbody > tr:nth-child(odd) {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.table-bordered {
+  border: 1px solid #eee;
 }
 
 

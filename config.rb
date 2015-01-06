@@ -94,9 +94,10 @@ set :images_dir, 'images'
 
 activate :directory_indexes
 
-activate :syntax, :line_numbers => true
-set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :smartypants => true
+activate :syntax, line_numbers: true
+
+set :markdown_engine, :kramdown
+set :markdown, input: 'GFM'
 
 %w(feed.xml robots.txt sitemap.xml).each do |file|
   page "#{file}", :layout => false, :directory_index => false
@@ -125,7 +126,6 @@ configure :build do
   # Enable cache buster
   activate :asset_hash
 
-  # Use relative URLs
   activate :relative_assets
 
   # Or use a different image path

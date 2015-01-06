@@ -2,21 +2,21 @@
 # the following line to use "https"
 source 'http://rubygems.org'
 
-gem "middleman", "~> 3.3.3"
-gem "middleman-blog", "~> 3.5.3"
+gem "middleman"
+gem "middleman-blog", "~> 3"
 gem "middleman-syntax"
 gem "middleman-deploy"
 gem "middleman-livereload"
 gem "middleman-search_engine_sitemap"
 
 # For feed.xml.builder
-gem "builder", "~> 3.0"
+gem "builder", "~> 3"
 
 gem "bootstrap-sass", :require => false
 gem "font-awesome-sass", :require => false
-gem "jquery-middleman", github: "jasl/jquery-middleman"
+gem "jquery-middleman", github: "jasl/jquery-middleman", :require => false
 
 # For Markdown
-gem "redcarpet"
+gem "kramdown"
 
 gem "rake"

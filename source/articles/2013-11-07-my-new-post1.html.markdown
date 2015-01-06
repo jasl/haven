@@ -1,6 +1,0 @@
----
-title: My new post1
-date: 2013-11-07 12:54
-tags:
----
-
